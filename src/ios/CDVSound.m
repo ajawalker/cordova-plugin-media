@@ -681,7 +681,7 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
                 if (![weakSelf.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
 					[self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord
 						withOptions:AVAudioSessionCategoryOptionMixWithOthers
-						error:&err];
+						error:nil];
                 }
 
                 if (![weakSelf.avSession setActive:YES error:&error]) {
