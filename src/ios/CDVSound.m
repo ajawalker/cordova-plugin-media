@@ -372,7 +372,7 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
 
                 //NSString* sessionCategory = bPlayAudioWhenScreenIsLocked ? AVAudioSessionCategoryPlayback : AVAudioSessionCategorySoloAmbient;
                 [self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord
-                	withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                	withOptions:AVAudioSessionCategoryOptionMixWithOthers + AVAudioSessionCategoryOptionDefaultToSpeaker
                 	error:&err];
                 if (![self.avSession setActive:YES error:&err]) {
                     // other audio with higher priority that does not allow mixing could cause this to fail
@@ -680,7 +680,7 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
             if ([weakSelf hasAudioSession]) {
                 if (![weakSelf.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
 					[self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord
-						withOptions:AVAudioSessionCategoryOptionMixWithOthers
+						withOptions:AVAudioSessionCategoryOptionMixWithOthers + AVAudioSessionCategoryOptionDefaultToSpeaker
 						error:nil];
                 }
 
